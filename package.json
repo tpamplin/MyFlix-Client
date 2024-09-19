@@ -6,5 +6,9 @@
   },
   "author": "Timothy Pamplin",
   "license": "ISC",
-  "description": "The front end of my myflix application."
+  "description": "The front end of my myflix application.",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
 }
