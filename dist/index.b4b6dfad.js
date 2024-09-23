@@ -27669,8 +27669,7 @@ const MovieView = ({ movie, onBackClick })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                    src: movie.ImagePath,
-                    "max-width": "150px "
+                    src: movie.ImagePath
                 }, void 0, false, {
                     fileName: "src/Components/movie-view/movie-view.jsx",
                     lineNumber: 5,
