@@ -28603,13 +28603,13 @@ const SignupView = ()=>{
                         minLength: "3"
                     }, void 0, false, {
                         fileName: "src/Components/signup-view/signup-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 38,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/signup-view/signup-view.jsx",
-                lineNumber: 37,
+                lineNumber: 36,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28623,13 +28623,13 @@ const SignupView = ()=>{
                         minLength: "8"
                     }, void 0, false, {
                         fileName: "src/Components/signup-view/signup-view.jsx",
-                        lineNumber: 49,
+                        lineNumber: 48,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/signup-view/signup-view.jsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28642,13 +28642,13 @@ const SignupView = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/Components/signup-view/signup-view.jsx",
-                        lineNumber: 59,
+                        lineNumber: 58,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/signup-view/signup-view.jsx",
-                lineNumber: 57,
+                lineNumber: 56,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28661,13 +28661,13 @@ const SignupView = ()=>{
                         required: true
                     }, void 0, false, {
                         fileName: "src/Components/signup-view/signup-view.jsx",
-                        lineNumber: 68,
+                        lineNumber: 67,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/signup-view/signup-view.jsx",
-                lineNumber: 66,
+                lineNumber: 65,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28675,13 +28675,13 @@ const SignupView = ()=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/Components/signup-view/signup-view.jsx",
-                lineNumber: 76,
+                lineNumber: 75,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/signup-view/signup-view.jsx",
-        lineNumber: 36,
+        lineNumber: 35,
         columnNumber: 9
     }, undefined);
 };
