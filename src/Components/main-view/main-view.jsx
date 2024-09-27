@@ -6,8 +6,12 @@ import { LoginView } from "../login-view/login-view";
 export const MainView = () => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, setUser] = useState(null);
-    const [token, setToken] = useState(null);
+    
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const [user, setUser] = useState(storedUser? storedUser : null);
+
+    const storedToken = localStorage.getItem("token")
+    const [token, setToken] = useState(token? token : null);
 
 
     useEffect(() => {
