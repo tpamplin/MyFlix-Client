@@ -27244,7 +27244,7 @@ const MainView = ()=>{
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     const storedToken = localStorage.getItem("token");
-    const [token, setToken] = (0, _react.useState)(token ? token : null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     (0, _react.useEffect)(()=>{
         console.log("checking for token");
         if (!token) {
@@ -27315,6 +27315,7 @@ const MainView = ()=>{
                 onClick: ()=>{
                     setUser(null);
                     setToken("null");
+                    localStorage.clear();
                 },
                 children: "Logout"
             }, void 0, false, {
@@ -27329,7 +27330,7 @@ const MainView = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "ihy/hWY07/xddd8cToBqMbMjwVo=");
+_s(MainView, "BlfpIHShIpB8l6l5+I0r6zS3Vck=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");

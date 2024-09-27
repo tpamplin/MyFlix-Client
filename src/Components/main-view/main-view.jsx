@@ -11,7 +11,7 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser : null);
 
     const storedToken = localStorage.getItem("token")
-    const [token, setToken] = useState(token? token : null);
+    const [token, setToken] = useState(storedToken? storedToken : null);
 
 
     useEffect(() => {
@@ -74,7 +74,7 @@ export const MainView = () => {
                     }} 
                 />
             ))}
-            <button onClick={() => {setUser(null); setToken("null");}}>Logout</button>
+            <button onClick={() => {setUser(null); setToken("null"); localStorage.clear();}}>Logout</button>
         </div>
     );
 };
