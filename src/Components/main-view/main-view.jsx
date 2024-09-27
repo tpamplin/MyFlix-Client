@@ -7,9 +7,20 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
+
 
     useEffect(() => {
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/movies/")
+        console.log("checking for token")
+        if (!token){
+            console.log("no token found")
+            return;
+        }
+        console.log("token found: ", token)
+
+        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/movies/", {
+            headers: { Authorization: `Bearer ${token}`}
+        })
         .then((response) => response.json())
         .then((data) => {
             console.log("movies from api: ", data);
@@ -25,10 +36,17 @@ export const MainView = () => {
             });
             setMovies(moviesFromApi);
         });
-    }, []);
+    }, [token]);
+
 
     if (!user) { 
-        return <LoginView onLoggedIn={(user) => setUser(user)} /> ;
+        return <LoginView 
+        onLoggedIn={(user, token) => {
+            setUser(user); 
+            setToken(token);
+            console.log("token set to: ", token)
+            }}
+        />
     }
 
     if (selectedMovie){
@@ -52,7 +70,7 @@ export const MainView = () => {
                     }} 
                 />
             ))}
-            <button onClick={() => {setUser(null);}}>Logout</button>
+            <button onClick={() => {setUser(null); setToken("null");}}>Logout</button>
         </div>
     );
 };

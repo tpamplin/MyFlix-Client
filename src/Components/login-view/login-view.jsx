@@ -8,8 +8,8 @@ export const LoginView = ({onLoggedIn}) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password
         };
 
 
@@ -43,7 +43,7 @@ export const LoginView = ({onLoggedIn}) => {
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    minlength="8"
+                    minLength="8"
                     required
                 />
             </label>
@@ -53,7 +53,7 @@ export const LoginView = ({onLoggedIn}) => {
                     type="text"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    minlength="8"
+                    minLength="8"
                     required
                 />
             </label>
