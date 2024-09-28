@@ -28,7 +28,7 @@ export const NoUserView = ({userData}) => {
 
     return (
         <div>
-        <h1>Welcome to My Flix!</h1>
+        <h1>Welcome to MyFlix!</h1>
         <button onClick={() => setSelectedUserView("login")}>Login</button>
         <p>or</p>
         <button onClick={() => setSelectedUserView("signup")}>Sign Up</button>
