@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const LoginView = ({onLoggedIn}) => {
+export const LoginView = ({onLoggedIn, onBackClick}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("")
 
@@ -40,7 +40,7 @@ export const LoginView = ({onLoggedIn}) => {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Username:
+                <span>Username: </span>
                 <input 
                     type="text"
                     value={username}
@@ -50,7 +50,7 @@ export const LoginView = ({onLoggedIn}) => {
                 />
             </label>
             <label>
-                Password:
+                <span>Password: </span>
                 <input
                     type="password"
                     value={password}
@@ -59,7 +59,8 @@ export const LoginView = ({onLoggedIn}) => {
                     required
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit">Submit</button><br />
+            <button onClick={onBackClick}>Back</button>
         </form>
     );
 };
