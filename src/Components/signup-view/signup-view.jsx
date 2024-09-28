@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const SignupView = () => {
+export const SignupView = ({onBackClick}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -73,6 +73,7 @@ export const SignupView = () => {
             </label>
 
             <button type="submit">Submit</button>
+            <button onClick={onBackClick}>Back</button>
         </form>
     );
 };
