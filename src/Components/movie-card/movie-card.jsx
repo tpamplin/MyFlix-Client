@@ -11,13 +11,6 @@ export const MovieCard = ({ movie, onMovieClick}) => {
                 <Card.Text>{movie.Genre.Name}</Card.Text>
             </Card.Body>
         </Card>
-
-        // <div onClick={() => {
-        //     onMovieClick(movie);
-        // }}
-        // >
-        //     {movie.Title}
-        // </div>
     );
 };
 

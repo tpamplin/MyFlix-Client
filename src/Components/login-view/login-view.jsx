@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export const LoginView = ({onLoggedIn, onBackClick}) => {
     const [username, setUsername] = useState("");
@@ -38,29 +40,62 @@ export const LoginView = ({onLoggedIn, onBackClick}) => {
    
    
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                <span>Username: </span>
-                <input 
+
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formUsername">
+                <Form.Label>Username:</Form.Label>
+                <Form.Control
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    minLength="8"
                     required
+                    minLength="3"
                 />
-            </label>
-            <label>
-                <span>Password: </span>
-                <input
+            </Form.Group>
+
+            <Form.Group controlId="formPassword">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    minLength="8"
                     required
+                    minLength="8"
                 />
-            </label>
-            <button type="submit">Submit</button><br />
-            <button onClick={onBackClick}>Back</button>
-        </form>
+            </Form.Group>
+            <Button 
+                variant="primary" 
+                type="submit"
+            >
+                Submit
+            </Button>
+            <Button onClick={onBackClick}>Back</Button>
+        </Form>
+
+
+        // <form onSubmit={handleSubmit}>
+        //     <label>
+        //         <span>Username: </span>
+        //         <input 
+        //             type="text"
+        //             value={username}
+        //             onChange={(e) => setUsername(e.target.value)}
+        //             minLength="8"
+        //             required
+        //         />
+        //     </label>
+        //     <label>
+        //         <span>Password: </span>
+        //         <input
+        //             type="password"
+        //             value={password}
+        //             onChange={(e) => setPassword(e.target.value)}
+        //             minLength="8"
+        //             required
+        //         />
+        //     </label>
+        //     <button type="submit">Submit</button><br />
+        //     <button onClick={onBackClick}>Back</button>
+        // </form>
     );
 };
