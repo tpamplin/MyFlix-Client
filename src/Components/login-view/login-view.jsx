@@ -72,30 +72,5 @@ export const LoginView = ({onLoggedIn, onBackClick}) => {
             <Button onClick={onBackClick}>Back</Button>
         </Form>
 
-
-        // <form onSubmit={handleSubmit}>
-        //     <label>
-        //         <span>Username: </span>
-        //         <input 
-        //             type="text"
-        //             value={username}
-        //             onChange={(e) => setUsername(e.target.value)}
-        //             minLength="8"
-        //             required
-        //         />
-        //     </label>
-        //     <label>
-        //         <span>Password: </span>
-        //         <input
-        //             type="password"
-        //             value={password}
-        //             onChange={(e) => setPassword(e.target.value)}
-        //             minLength="8"
-        //             required
-        //         />
-        //     </label>
-        //     <button type="submit">Submit</button><br />
-        //     <button onClick={onBackClick}>Back</button>
-        // </form>
     );
 };
