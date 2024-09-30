@@ -13192,4 +13192,19 @@ img {
   max-width: 100%;
   max-height: 800px;
 }
+
+.centeredContent {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.addSpacing {
+  margin: 10px;
+}
+
+.formField {
+  background-color: #fff;
+}
 /*# sourceMappingURL=index.2212206d.css.map */

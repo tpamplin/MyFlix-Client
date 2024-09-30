@@ -10,3 +10,17 @@ img {
 }
 
 
+.centeredContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.addSpacing{
+    margin:10px;
+}
+
+.formField {
+    background-color: white;
+}

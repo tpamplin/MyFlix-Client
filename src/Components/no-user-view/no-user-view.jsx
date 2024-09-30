@@ -29,10 +29,19 @@ export const NoUserView = ({userData}) => {
 
     return (
         <div>
-        <h1>Welcome to MyFlix!</h1>
-        <Button className="primary" onClick={() => setSelectedUserView("login")}>Login</Button>
-        <p>or</p>
-        <Button className="primary" onClick={() => setSelectedUserView("signup")}>Sign Up</Button>
+            <div className="centeredContent">
+                <h1>Welcome to MyFlix!</h1>
+            </div>
+            <div className="centeredContent">
+                <Button className="primary" onClick={() => setSelectedUserView("login")}>Login</Button>
+            
+            </div>
+            <div className="centeredContent">
+                <p>or</p>
+            </div>
+            <div className="centeredContent">
+                <Button className="primary" onClick={() => setSelectedUserView("signup")}>Sign Up</Button>
+            </div>
         </div>
     )
 }

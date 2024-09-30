@@ -79,7 +79,7 @@ export const MainView = () => {
                             />
                         </Col>
                     ))}
-                    <Col md={8}> 
+                    <Col md={8} className="centeredContent"> 
                         <Button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
                     </Col>
                 </> 

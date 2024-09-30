@@ -37,7 +37,8 @@ export const SignupView = ({onBackClick}) => {
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
                 <Form.Label>Username:</Form.Label>
-                <Form.Control 
+                <Form.Control
+                    className="formField" 
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -48,6 +49,7 @@ export const SignupView = ({onBackClick}) => {
             <Form.Group controlId="formPassword">
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
+                    className="formField"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -58,6 +60,7 @@ export const SignupView = ({onBackClick}) => {
             <Form.Group controlId="formEmail">
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
+                    className="formField"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -68,16 +71,28 @@ export const SignupView = ({onBackClick}) => {
             <Form.Group controlId="formBirthday">
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
+                    className="formField"
                     type="date"
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />
             </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            <Button onClick={onBackClick}>Back</Button>
+            <div className="centeredContent">
+                <Button
+                    className="addSpacing" 
+                    variant="primary" 
+                    type="submit"
+                >
+                    Submit
+                </Button>
+                <Button
+                    className="addSpacing" 
+                    onClick={onBackClick}
+                >
+                Back
+                </Button>
+            </div>
         </Form>
     );
 };
