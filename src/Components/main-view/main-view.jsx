@@ -4,6 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { NoUserView } from "../no-user-view/no-user-view";
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
 
 
 export const MainView = () => {
@@ -47,7 +48,7 @@ export const MainView = () => {
     return(
         <Row className="justify-content-md-center">
             { !user ? (
-                <Col md={8}>
+                <Col md={5}>
                     <NoUserView
                     userData={(user, token) => {
                         setUser(user); 
@@ -63,22 +64,25 @@ export const MainView = () => {
                     />
                 </Col>
             ) : movies.length === 0 ? (
-                <Col md={8}>
+                <Col md={2}>
                     <div>The list is empty!</div>
                 </Col>
             ) : (
-                <Col md={8}>
+                <>
                     {movies.map((movie) => (
-                        <MovieCard 
-                            key={movie.Id} 
-                            movie={movie} 
-                            onMovieClick={(newSelectedMovie) => {
-                                setSelectedMovie(newSelectedMovie)
-                            }} 
-                        />
+                        <Col key={movie.id} md={3} className="mb-4 mt-2">
+                            <MovieCard 
+                                movie={movie} 
+                                onMovieClick={(newSelectedMovie) => {
+                                    setSelectedMovie(newSelectedMovie)
+                                }} 
+                            />
+                        </Col>
                     ))}
-                    <button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</button>
-                </Col> 
+                    <Col md={8}> 
+                        <Button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                    </Col>
+                </> 
             )}
         </Row>
     );
