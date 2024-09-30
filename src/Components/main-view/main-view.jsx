@@ -48,7 +48,7 @@ export const MainView = () => {
     return(
         <Row className="justify-content-md-center">
             { !user ? (
-                <Col md={5}>
+                <Col sm={8} md={5}>
                     <NoUserView
                     userData={(user, token) => {
                         setUser(user); 
@@ -70,7 +70,7 @@ export const MainView = () => {
             ) : (
                 <>
                     {movies.map((movie) => (
-                        <Col key={movie.id} md={3} className="mb-4 mt-2">
+                        <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
                             <MovieCard 
                                 movie={movie} 
                                 onMovieClick={(newSelectedMovie) => {
@@ -80,7 +80,7 @@ export const MainView = () => {
                         </Col>
                     ))}
                     <Col md={8} className="centeredContent"> 
-                        <Button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                        <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
                     </Col>
                 </> 
             )}

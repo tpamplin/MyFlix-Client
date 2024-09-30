@@ -27286,6 +27286,7 @@ const MainView = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
         className: "justify-content-md-center",
         children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+            sm: 8,
             md: 5,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _noUserView.NoUserView), {
                 userData: (user, token)=>{
@@ -27331,7 +27332,9 @@ const MainView = ()=>{
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
             children: [
                 movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                        md: 3,
+                        sm: 8,
+                        md: 6,
+                        lg: 3,
                         className: "mb-4 mt-2",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                             movie: movie,
@@ -27352,6 +27355,7 @@ const MainView = ()=>{
                     md: 8,
                     className: "centeredContent",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                        className: "addSpacing",
                         onClick: ()=>{
                             setUser(null);
                             setToken(null);
