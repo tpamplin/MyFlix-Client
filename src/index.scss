@@ -1,10 +1,26 @@
-$color: maroon;
+$primary: #6b9080;
+$body-bg: #eaf4f4;
 
-.my-flix {
-    color: $color;
-}
+@import "~bootstrap/scss/bootstrap.scss";
 
 img {
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 800px;
+
 }
 
+
+.centeredContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.addSpacing{
+    margin:10px;
+}
+
+.formField {
+    background-color: white;
+}

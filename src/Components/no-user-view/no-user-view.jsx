@@ -1,6 +1,7 @@
 import { useState} from "react";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import Button from "react-bootstrap/Button"
 
 export const NoUserView = ({userData}) => { 
 
@@ -28,10 +29,19 @@ export const NoUserView = ({userData}) => {
 
     return (
         <div>
-        <h1>Welcome to MyFlix!</h1>
-        <button onClick={() => setSelectedUserView("login")}>Login</button>
-        <p>or</p>
-        <button onClick={() => setSelectedUserView("signup")}>Sign Up</button>
+            <div className="centeredContent">
+                <h1>Welcome to MyFlix!</h1>
+            </div>
+            <div className="centeredContent">
+                <Button className="primary" onClick={() => setSelectedUserView("login")}>Login</Button>
+            
+            </div>
+            <div className="centeredContent">
+                <p>or</p>
+            </div>
+            <div className="centeredContent">
+                <Button className="primary" onClick={() => setSelectedUserView("signup")}>Sign Up</Button>
+            </div>
         </div>
     )
 }
