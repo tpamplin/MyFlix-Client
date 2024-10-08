@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export const SignupView = ({onBackClick}) => {
     const [username, setUsername] = useState("");
@@ -32,48 +34,65 @@ export const SignupView = ({onBackClick}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username:
-                <input 
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formUsername">
+                <Form.Label>Username:</Form.Label>
+                <Form.Control
+                    className="formField" 
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    minLength="3" 
+                    minLength="3"
                 />
-            </label>
-            <label>
-                Password: 
-                <input 
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
+                    className="formField"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     minLength="8"
                 />
-            </label>
-            <label>
-                Email: 
-                <input
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control
+                    className="formField"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-            </label>
-            <label>
-                Birthday: 
-                <input
+
+            </Form.Group>
+            <Form.Group controlId="formBirthday">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
+                    className="formField"
                     type="date"
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />
-            </label>
-
-            <button type="submit">Submit</button>
-            <button onClick={onBackClick}>Back</button>
-        </form>
+            </Form.Group>
+            <div className="centeredContent">
+                <Button
+                    className="addSpacing" 
+                    variant="primary" 
+                    type="submit"
+                >
+                    Submit
+                </Button>
+                <Button
+                    className="addSpacing" 
+                    onClick={onBackClick}
+                >
+                Back
+                </Button>
+            </div>
+        </Form>
     );
 };
