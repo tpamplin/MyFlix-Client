@@ -64,24 +64,28 @@ export const MainView = () => {
                     />
                 </Col>
             ) : movies.length === 0 ? (
-                <Col md={2}>
-                    <div>The list is empty!</div>
-                </Col>
+                <>
+                    <Col md={2}>
+                        <div>The list isn't loading or your session is expired. Please try to log back in.</div>
+                        <br/>
+                        <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                    </Col>
+                </>
             ) : (
                 <>
                     {movies.map((movie) => (
-                        <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
-                            <MovieCard 
-                                movie={movie} 
-                                onMovieClick={(newSelectedMovie) => {
-                                    setSelectedMovie(newSelectedMovie)
-                                }} 
-                            />
-                        </Col>
+                            <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
+                                <MovieCard 
+                                    movie={movie} 
+                                    onMovieClick={(newSelectedMovie) => {
+                                        setSelectedMovie(newSelectedMovie)
+                                    }} 
+                                />
+                            </Col>
                     ))}
-                    <Col md={8} className="centeredContent"> 
-                        <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
-                    </Col>
+                        <Col md={8} className="centeredContent"> 
+                            <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                        </Col>
                 </> 
             )}
         </Row>
