@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom"
 
 export const SignupView = ({onBackClick}) => {
     const [username, setUsername] = useState("");
@@ -86,12 +87,14 @@ export const SignupView = ({onBackClick}) => {
                 >
                     Submit
                 </Button>
-                <Button
-                    className="addSpacing" 
-                    onClick={onBackClick}
-                >
-                Back
-                </Button>
+                <Link to="/">
+                    <Button
+                        className="addSpacing" 
+                        onClick={onBackClick}
+                    >
+                    Back
+                    </Button>
+                </Link>
             </div>
         </Form>
     );

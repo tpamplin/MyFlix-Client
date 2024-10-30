@@ -2,6 +2,7 @@ import { useState} from "react";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Button from "react-bootstrap/Button"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const NoUserView = ({userData}) => { 
 
@@ -11,7 +12,10 @@ export const NoUserView = ({userData}) => {
     const [token, setToken] = useState(null);
 
     if (selectedUserView === "login") {
-        return <LoginView 
+        return (
+        <>
+        <Navigate to="/login" replace />
+        <LoginView 
         onLoggedIn={(user, token) => {
             setUser(user); 
             setToken(token);
@@ -19,12 +23,21 @@ export const NoUserView = ({userData}) => {
             }}
         onBackClick={() => setSelectedUserView(null)}
         />;
+        </>
+        )
     }
 
     if (selectedUserView === "signup") {
-        return <SignupView
-            onBackClick={() => setSelectedUserView(null)}
-        />;
+        return (
+        <>
+            <Navigate to="/signup" />
+            <SignupView
+            onBackClick={() => {
+                setSelectedUserView(null)
+            }}
+        />
+        </>
+        )
     }
 
     return (

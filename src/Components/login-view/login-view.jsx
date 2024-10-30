@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 export const LoginView = ({onLoggedIn, onBackClick}) => {
     const [username, setUsername] = useState("");
@@ -73,12 +74,14 @@ export const LoginView = ({onLoggedIn, onBackClick}) => {
                 >
                     Submit
                 </Button>
-                <Button
-                    className="addSpacing" 
-                    onClick={onBackClick}
-                >
-                Back
-                </Button>
+                <Link to="/">
+                    <Button
+                        className="addSpacing" 
+                        onClick={onBackClick}
+                    >
+                    Back
+                    </Button>
+                </Link>
             </div>
         </Form>
 

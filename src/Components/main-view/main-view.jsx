@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { NoUserView } from "../no-user-view/no-user-view";
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Button from "react-bootstrap/Button"
+import { SignupView} from "../signup-view/signup-view"
+import { LoginView } from "../login-view/login-view"
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 
 export const MainView = () => {
@@ -46,48 +49,142 @@ export const MainView = () => {
 
 
     return(
-        <Row className="justify-content-md-center">
-            { !user ? (
-                <Col sm={8} md={5}>
-                    <NoUserView
-                    userData={(user, token) => {
-                        setUser(user); 
-                        setToken(token);
-                    }}    
+        <BrowserRouter>
+            <Row className="justify-content-md-center">
+                <Routes>
+                    <Route
+                        path="/signup"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <Col md={5}>
+                                        <SignupView />
+                                    </Col>
+                                )}
+                            </>
+                        }
                     />
-                </Col >
-            ) : selectedMovie ? (
-                <Col md={8}>
-                    <MovieView 
-                        movie={selectedMovie} 
-                        onBackClick={() => setSelectedMovie(null)} 
+                    <Route
+                        path="/login"
+                        element={
+                            <>
+                                {user ? (
+                                    <Navigate to="/" />
+
+                                ) : (
+                                    <Col md={5}>
+                                        <LoginView onLoggedIn={(user) => setUser(user)} />
+                                    </Col>
+                                )
+                            }
+                            </>
+                        }
                     />
-                </Col>
-            ) : movies.length === 0 ? (
-                <>
-                    <Col md={2}>
-                        <div>The list isn't loading or your session is expired. Please try to log back in.</div>
-                        <br/>
-                        <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
-                    </Col>
-                </>
-            ) : (
-                <>
-                    {movies.map((movie) => (
-                            <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
-                                <MovieCard 
-                                    movie={movie} 
-                                    onMovieClick={(newSelectedMovie) => {
-                                        setSelectedMovie(newSelectedMovie)
-                                    }} 
+                    <Route 
+                        path="/movie/:movieId"
+                        element={
+                            <>
+                            {!user ? (
+                                <Col sm={8} md={5}>
+                                <NoUserView
+                                userData={(user, token) => {
+                                    setUser(user); 
+                                    setToken(token);
+                                }}    
                                 />
-                            </Col>
-                    ))}
-                        <Col md={8} className="centeredContent"> 
+                                </Col>
+                            ) : movies.length === 0 ? (
+                                <Col>The list is empty</Col>
+                            ) : (
+                                <Col md={8}>
+                                    <MovieView movies={movies} />
+                                </Col>
+                            )
+                            }
+                        </>
+                        }
+                    />
+                    <Route 
+                        path="/"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Col sm={8} md={5}>
+                                    <NoUserView
+                                    userData={(user, token) => {
+                                        setUser(user); 
+                                        setToken(token);
+                                    }}    
+                                    />
+                                    </Col>
+                                ) : movies.length === 0 ?(
+                                    <Col>The list is empty</Col>
+                                ) : (
+                                    <>
+                                        {movies.map((movie) => (
+                                            <Col
+                                                className="mb-4" 
+                                                key={movie.Id} 
+                                                md={3}
+                                            >
+                                                <MovieCard movie={movie}/>
+                                                    
+                                            </Col>
+                                        ))}
+                                        <Col md={8} className="centeredContent"> 
+                                            <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                                        </Col>
+                                    </>
+                                )}
+                            </>
+                        }
+                    />
+                </Routes>
+    {/*             
+                { !user ? (
+                    <Col sm={8} md={5}>
+                        <NoUserView
+                        userData={(user, token) => {
+                            setUser(user); 
+                            setToken(token);
+                        }}    
+                        />
+                    </Col >
+                ) : selectedMovie ? (
+                    <Col md={8}>
+                        <MovieView 
+                            movie={selectedMovie} 
+                            onBackClick={() => setSelectedMovie(null)} 
+                        />
+                    </Col>
+                ) : movies.length === 0 ? (
+                    <>
+                        <Col md={2}>
+                            <div>The list isn't loading or your session is expired. Please try to log back in.</div>
+                            <br/>
                             <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
                         </Col>
-                </> 
-            )}
-        </Row>
+                    </>
+                ) : (
+                    <>
+                        {movies.map((movie) => (
+                                <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
+                                    <MovieCard 
+                                        movie={movie} 
+                                        onMovieClick={(newSelectedMovie) => {
+                                            setSelectedMovie(newSelectedMovie)
+                                        }} 
+                                    />
+                                </Col>
+                        ))}
+                            <Col md={8} className="centeredContent"> 
+                                <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                            </Col>
+                    </> 
+                )} */}
+            </Row>
+        </BrowserRouter>
     );
 };
