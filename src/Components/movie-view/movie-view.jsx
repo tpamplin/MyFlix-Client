@@ -2,7 +2,11 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+    const { movieId } = useParams();
+    
+    const movie = movies.find((m) => m.Id === movieId);
+
     return (
         <div >
             <div className="centeredContent">
@@ -25,12 +29,9 @@ export const MovieView = ({ movie, onBackClick }) => {
                 <span className="centeredContent">{movie.Genre.Name}</span>
             </div>
             <div className="centeredContent">
-                <Button 
-                    className="primary addSpacing" 
-                    onClick={onBackClick} 
-                >
-                Back
-                </Button>
+                <Link to="/">
+                    <button className="back-button">Back</button>
+                </Link>
             </div>
         </div>
     );

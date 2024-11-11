@@ -83,7 +83,7 @@ export const MainView = () => {
                         }
                     />
                     <Route 
-                        path="/movie/:movieId"
+                        path="/movies/:movieId"
                         element={
                             <>
                             {!user ? (
@@ -129,8 +129,7 @@ export const MainView = () => {
                                                 key={movie.Id} 
                                                 md={3}
                                             >
-                                                <MovieCard movie={movie}/>
-                                                    
+                                                <MovieCard movie={movie}/> 
                                             </Col>
                                         ))}
                                         <Col md={8} className="centeredContent"> 
