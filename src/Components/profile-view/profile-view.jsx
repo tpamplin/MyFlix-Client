@@ -34,18 +34,20 @@ export const ProfileView = ({ user, movies}) =>{
         <Row>
             <Col className="centeredContent">
             <table>
-                <tr>
-                    <th>Title</th>
-                    <th>Image</th>
-                    <th>Link</th>
-                </tr>
-                {movies.map((movie) => (
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {favoriteMovies.map((movie) => (
                     <tr key={movie.Id} >
-                        <td>{movie.Title}</td>
+                        <td><Link to={`/movies/${encodeURIComponent(movie.Id)}`}>{movie.Title}</Link></td>
                         <td><img src={movie.Image} height="150"/></td>
-                        <td><Link to={`/movies/${encodeURIComponent(movie.Id)}`}>Go To Movie</Link></td>
                     </tr>
                     ))}
+                </tbody>
             </table>
             </Col>
         </Row>

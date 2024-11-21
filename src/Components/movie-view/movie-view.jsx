@@ -1,14 +1,14 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { FavoriteButton} from "../favorite-button/favorite-button";
 
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user }) => {
     const { movieId } = useParams();
-    
     const movie = movies.find((m) => m.Id === movieId);
 
     return (
-        <div >
+        <div>
             <div className="centeredContent">
                 <span>
                     <h2>{movie.Title}</h2>
@@ -16,6 +16,9 @@ export const MovieView = ({ movies }) => {
             </div>
             <div className="primary centeredContent">
                 <img src={movie.Image}/>
+            </div>
+            <div className="centeredContent addSpacing">
+                <FavoriteButton movie={movie} user={user}/>
             </div>
             <div>
                 <span className="centeredContent addSpacing">{movie.Description}</span>
