@@ -2,12 +2,12 @@ import {useEffect, useState} from "react";
 import { Button } from "react-bootstrap";
 
 
-export const FavoriteButton =  ({ user, movie}) => {
+export const FavoriteButton =  ({ user, movie, setUser}) => {
     const movieId = movie.Id;
     const storedToken = localStorage.getItem("token");
     const [isFavorite, setIsFavorite] = useState(false);
     const data = {
-        MovieID: movie.Id
+        "MovieID": movie.Id
     }
     const addFavorite = () =>{
         fetch(
@@ -25,6 +25,10 @@ export const FavoriteButton =  ({ user, movie}) => {
             if(response.ok) {
                 return response.json();
             }
+        })
+        .then((user) => {
+            setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
         })
         .catch((err) => console.error(err));
     };
@@ -45,6 +49,10 @@ export const FavoriteButton =  ({ user, movie}) => {
             if(response.ok) {
                 return response.json();
             }
+        })
+        .then((user) => {
+            setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
         })
         .catch((err) => console.error(err));
     };

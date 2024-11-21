@@ -27390,7 +27390,8 @@ const MainView = ()=>{
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                                         movies: movies,
-                                        user: user
+                                        user: user,
+                                        setUser: setUser
                                     }, void 0, false, {
                                         fileName: "src/Components/main-view/main-view.jsx",
                                         lineNumber: 108,
@@ -42101,7 +42102,7 @@ var _reactRouter = require("react-router");
 var _reactRouterDom = require("react-router-dom");
 var _favoriteButton = require("../favorite-button/favorite-button");
 var _s = $RefreshSig$();
-const MovieView = ({ movies, user })=>{
+const MovieView = ({ movies, user, setUser })=>{
     _s();
     const { movieId } = (0, _reactRouter.useParams)();
     const movie = movies.find((m)=>m.Id === movieId);
@@ -42145,7 +42146,8 @@ const MovieView = ({ movies, user })=>{
                 className: "centeredContent addSpacing",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favoriteButton.FavoriteButton), {
                     movie: movie,
-                    user: user
+                    user: user,
+                    setUser: setUser
                 }, void 0, false, {
                     fileName: "src/Components/movie-view/movie-view.jsx",
                     lineNumber: 21,
@@ -42277,13 +42279,13 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
-const FavoriteButton = ({ user, movie })=>{
+const FavoriteButton = ({ user, movie, setUser })=>{
     _s();
     const movieId = movie.Id;
     const storedToken = localStorage.getItem("token");
     const [isFavorite, setIsFavorite] = (0, _react.useState)(false);
     const data = {
-        MovieID: movie.Id
+        "MovieID": movie.Id
     };
     const addFavorite = ()=>{
         fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`, {
@@ -42295,6 +42297,9 @@ const FavoriteButton = ({ user, movie })=>{
             body: JSON.stringify(data)
         }).then((response)=>{
             if (response.ok) return response.json();
+        }).then((user)=>{
+            setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
         }).catch((err)=>console.error(err));
     };
     const removeFavorite = ()=>{
@@ -42307,6 +42312,9 @@ const FavoriteButton = ({ user, movie })=>{
             body: JSON.stringify(data)
         }).then((response)=>{
             if (response.ok) return response.json();
+        }).then((user)=>{
+            setUser(user);
+            localStorage.setItem("user", JSON.stringify(user));
         }).catch((err)=>console.error(err));
     };
     (0, _react.useEffect)(()=>{
@@ -42322,7 +42330,7 @@ const FavoriteButton = ({ user, movie })=>{
         children: "Remove From Favorites"
     }, void 0, false, {
         fileName: "src/Components/favorite-button/favorite-button.jsx",
-        lineNumber: 64,
+        lineNumber: 72,
         columnNumber: 13
     }, undefined);
     else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -42331,7 +42339,7 @@ const FavoriteButton = ({ user, movie })=>{
         children: "Add To Favorites"
     }, void 0, false, {
         fileName: "src/Components/favorite-button/favorite-button.jsx",
-        lineNumber: 70,
+        lineNumber: 78,
         columnNumber: 13
     }, undefined);
 };
