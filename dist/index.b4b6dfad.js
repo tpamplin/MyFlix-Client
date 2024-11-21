@@ -27429,7 +27429,8 @@ const MainView = ()=>{
                                 }, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: 8,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
-                                        user: user
+                                        user: user,
+                                        movies: movies
                                     }, void 0, false, {
                                         fileName: "src/Components/main-view/main-view.jsx",
                                         lineNumber: 130,
@@ -42894,83 +42895,232 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfileView", ()=>ProfileView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
-const ProfileView = ({ user })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _profileViewScss = require("./profile-view.scss");
+const ProfileView = ({ user, movies })=>{
+    const favoriteMovies = movies.filter((m)=>user.Favorites.includes(m.Id));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "centeredContent",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                        children: [
-                            "Username: ",
-                            user.Username
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/Components/profile-view/profile-view.jsx",
-                        lineNumber: 9,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/Components/profile-view/profile-view.jsx",
-                    lineNumber: 8,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/Components/profile-view/profile-view.jsx",
-                lineNumber: 7,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "centeredContent",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
-                        children: [
-                            "Email: ",
-                            user.Email
-                        ]
-                    }, void 0, true, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    className: "centeredContent",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        children: "Profile"
+                    }, void 0, false, {
                         fileName: "src/Components/profile-view/profile-view.jsx",
                         lineNumber: 14,
-                        columnNumber: 21
+                        columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/Components/profile-view/profile-view.jsx",
                     lineNumber: 13,
-                    columnNumber: 17
+                    columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/profile-view/profile-view.jsx",
                 lineNumber: 12,
-                columnNumber: 13
+                columnNumber: 9
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "centeredContent",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: "/",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        className: "back-button",
-                        children: "Back"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                        className: "centeredContent",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                children: [
+                                    "Username: ",
+                                    user.Username
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/profile-view/profile-view.jsx",
+                                lineNumber: 20,
+                                columnNumber: 21
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/profile-view/profile-view.jsx",
+                            lineNumber: 19,
+                            columnNumber: 17
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/profile-view/profile-view.jsx",
-                        lineNumber: 19,
-                        columnNumber: 21
+                        lineNumber: 18,
+                        columnNumber: 13
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                        className: "centeredContent",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                children: [
+                                    "Email: ",
+                                    user.Email
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/profile-view/profile-view.jsx",
+                                lineNumber: 25,
+                                columnNumber: 21
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/profile-view/profile-view.jsx",
+                            lineNumber: 24,
+                            columnNumber: 17
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/Components/profile-view/profile-view.jsx",
+                        lineNumber: 23,
+                        columnNumber: 13
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/profile-view/profile-view.jsx",
+                lineNumber: 17,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    className: "centeredContent",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Favorite Movies"
+                    }, void 0, false, {
+                        fileName: "src/Components/profile-view/profile-view.jsx",
+                        lineNumber: 31,
+                        columnNumber: 13
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/Components/profile-view/profile-view.jsx",
-                    lineNumber: 18,
-                    columnNumber: 17
+                    lineNumber: 30,
+                    columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/profile-view/profile-view.jsx",
-                lineNumber: 17,
-                columnNumber: 13
+                lineNumber: 29,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    className: "centeredContent",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Title"
+                                    }, void 0, false, {
+                                        fileName: "src/Components/profile-view/profile-view.jsx",
+                                        lineNumber: 38,
+                                        columnNumber: 21
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Image"
+                                    }, void 0, false, {
+                                        fileName: "src/Components/profile-view/profile-view.jsx",
+                                        lineNumber: 39,
+                                        columnNumber: 21
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Link"
+                                    }, void 0, false, {
+                                        fileName: "src/Components/profile-view/profile-view.jsx",
+                                        lineNumber: 40,
+                                        columnNumber: 21
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/profile-view/profile-view.jsx",
+                                lineNumber: 37,
+                                columnNumber: 17
+                            }, undefined),
+                            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: movie.Title
+                                        }, void 0, false, {
+                                            fileName: "src/Components/profile-view/profile-view.jsx",
+                                            lineNumber: 44,
+                                            columnNumber: 25
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                src: movie.Image,
+                                                height: "150"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/profile-view/profile-view.jsx",
+                                                lineNumber: 45,
+                                                columnNumber: 29
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/Components/profile-view/profile-view.jsx",
+                                            lineNumber: 45,
+                                            columnNumber: 25
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                                to: `/movies/${encodeURIComponent(movie.Id)}`,
+                                                children: "Go To Movie"
+                                            }, void 0, false, {
+                                                fileName: "src/Components/profile-view/profile-view.jsx",
+                                                lineNumber: 46,
+                                                columnNumber: 29
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/Components/profile-view/profile-view.jsx",
+                                            lineNumber: 46,
+                                            columnNumber: 25
+                                        }, undefined)
+                                    ]
+                                }, movie.Id, true, {
+                                    fileName: "src/Components/profile-view/profile-view.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 21
+                                }, undefined))
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Components/profile-view/profile-view.jsx",
+                        lineNumber: 36,
+                        columnNumber: 13
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/Components/profile-view/profile-view.jsx",
+                    lineNumber: 35,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/profile-view/profile-view.jsx",
+                lineNumber: 34,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    className: "centeredContent",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "back-button",
+                            children: "Back"
+                        }, void 0, false, {
+                            fileName: "src/Components/profile-view/profile-view.jsx",
+                            lineNumber: 55,
+                            columnNumber: 21
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/Components/profile-view/profile-view.jsx",
+                        lineNumber: 54,
+                        columnNumber: 17
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/Components/profile-view/profile-view.jsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/profile-view/profile-view.jsx",
+                lineNumber: 52,
+                columnNumber: 9
             }, undefined)
         ]
-    }, void 0, true, {
-        fileName: "src/Components/profile-view/profile-view.jsx",
-        lineNumber: 6,
-        columnNumber: 9
-    }, undefined);
+    }, void 0, true);
 };
 _c = ProfileView;
 var _c;
@@ -42981,6 +43131,6 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react-router-dom":"9xmpe","react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"jpajW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cXxH1"}],"lJZlQ":[function() {},{}]},["4vULU","4oUVy","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react-router-dom":"9xmpe","react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"jpajW","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"cXxH1","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","./profile-view.scss":"c7ee8"}],"c7ee8":[function() {},{}],"lJZlQ":[function() {},{}]},["4vULU","4oUVy","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
