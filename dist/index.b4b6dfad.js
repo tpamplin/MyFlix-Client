@@ -42285,7 +42285,7 @@ const FavoriteButton = ({ user, movie, setUser })=>{
     const storedToken = localStorage.getItem("token");
     const [isFavorite, setIsFavorite] = (0, _react.useState)(false);
     const data = {
-        "MovieID": movie.Id
+        MovieID: movie.Id
     };
     const addFavorite = ()=>{
         fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`, {

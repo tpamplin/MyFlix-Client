@@ -7,7 +7,7 @@ export const FavoriteButton =  ({ user, movie, setUser}) => {
     const storedToken = localStorage.getItem("token");
     const [isFavorite, setIsFavorite] = useState(false);
     const data = {
-        "MovieID": movie.Id
+        MovieID: movie.Id
     }
     const addFavorite = () =>{
         fetch(
