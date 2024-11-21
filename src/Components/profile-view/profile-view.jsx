@@ -6,7 +6,7 @@ import "./profile-view.scss"
 export const ProfileView = ({ user, movies}) =>{
 
     const favoriteMovies = movies.filter(m => user.Favorites.includes(m.Id));
-
+    const birthday = new Date(Date.parse(user.Birthday))
     return (
         <>
         <Row>
@@ -23,6 +23,11 @@ export const ProfileView = ({ user, movies}) =>{
             <Col className="centeredContent">
                 <span>
                     <h5>Email: {user.Email}</h5>
+                </span>
+            </Col>
+            <Col className="centeredContent">
+                <span>
+                    <h5>Birthday: {birthday.toDateString()}</h5>
                 </span>
             </Col>
         </Row>
