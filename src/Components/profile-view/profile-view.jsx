@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Row, Col, Button} from "react-bootstrap";
+import { ProfileUpdate } from "./profile-update.jsx"
 import "./profile-view.scss"
 
 export const ProfileView = ({ user, movies}) =>{
@@ -27,7 +27,7 @@ export const ProfileView = ({ user, movies}) =>{
             </Col>
             <Col className="centeredContent">
                 <span>
-                    <h5>Birthday: {birthday.toDateString()}</h5>
+                    <h5>Birthday: {birthday.toDateString()}</h5> 
                 </span>
             </Col>
         </Row>
@@ -57,11 +57,18 @@ export const ProfileView = ({ user, movies}) =>{
             </Col>
         </Row>
         <Row>
-        <Col className="centeredContent">
+            <Col className="centeredContent">
                 <Link to="/">
-                    <button className="back-button">Back</button>
+                    <Button variant="secondary">Back</Button>
                 </Link>
             </Col>
+            <Col className="centeredContent">
+                <ProfileUpdate/> 
+            </Col>
+        
+            <Col>
+            
+            </Col>       
         </Row>
         </>
 );
