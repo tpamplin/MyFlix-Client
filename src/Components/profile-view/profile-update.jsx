@@ -1,19 +1,17 @@
 import { React, useState} from "react";
 import { Button, Modal, Form} from "react-bootstrap";
 
-export const ProfileUpdate = ({}) => {
-    const storedToken = localStorage.getItem("token"),
-          storedUser = localStorage.getItem("user")
+export const ProfileUpdate = ({ user , token }) => {
 
     const [showModal, setShowModal] = useState(false)
 
-    const [username, setUsername] = useState(storedUser.Username || ""),
+    const [username, setUsername] = useState(user.Username),
           [password, setPassword] = useState(""),
-          [email, setEmail] = useState(storedUser.Email || ""),
-          [birthday, setBirthday] = useState(storedUser.Birthday || "");
+          [email, setEmail] = useState(user.Email),
+          [birthday, setBirthday] = useState(user.Birthday);
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
     
         const data = {
             Username: username,
@@ -21,13 +19,13 @@ export const ProfileUpdate = ({}) => {
             Email: email,
             Birthday: birthday,
         };
-
+        
         fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
-                Authorization: `Bearer ${storedToken}`,
-                "Content-Type": "Application/json"
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
             }
         }).then((response) => {
             if (response.ok) {

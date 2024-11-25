@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Row, Col, Button} from "react-bootstrap";
 import { ProfileUpdate } from "./profile-update.jsx"
+import { ProfileDelete } from "./profile-delete.jsx" 
 import "./profile-view.scss"
 
-export const ProfileView = ({ user, movies}) =>{
+export const ProfileView = ({ user , movies , token}) =>{
 
     const favoriteMovies = movies.filter(m => user.Favorites.includes(m.Id));
     const birthday = new Date(Date.parse(user.Birthday))
@@ -63,11 +64,11 @@ export const ProfileView = ({ user, movies}) =>{
                 </Link>
             </Col>
             <Col className="centeredContent">
-                <ProfileUpdate/> 
+                <ProfileUpdate user={user} token={token}/> 
             </Col>
         
             <Col>
-            
+                <ProfileDelete username={user.Username} token={token}/>
             </Col>       
         </Row>
         </>

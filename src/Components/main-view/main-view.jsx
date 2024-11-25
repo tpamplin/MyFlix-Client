@@ -9,7 +9,7 @@ import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, BrowserRouter} from "react-router-dom";
 
 
 export const MainView = () => {
@@ -23,6 +23,10 @@ export const MainView = () => {
     const storedToken = localStorage.getItem("token")
     const [token, setToken] = useState(storedToken? storedToken : null);
 
+    const onLoggedOut = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
 
     useEffect(() => {
         if (!token){
@@ -102,7 +106,17 @@ export const MainView = () => {
                                 />
                                 </Col>
                             ) : movies.length === 0 ? (
-                                <Col>The list is empty</Col>
+                                <>
+                                    <Col>There is No Movie!</Col>
+                                    <Col>
+                                        <Button 
+                                            variant="danger" 
+                                            onClick={() => window.location.reload()}
+                                        >
+                                            Reload Page
+                                        </Button>
+                                    </Col>
+                                </>
                             ) : (
                                 <Col md={8}>
                                     <MovieView movies={movies} user={user} setUser={setUser}/>
@@ -127,7 +141,7 @@ export const MainView = () => {
                                 </Col>
                             ) : (
                                 <Col md={8}>
-                                    <ProfileView user={user} movies={movies}/>
+                                    <ProfileView user={user} token={token} movies={movies}/>
                                 </Col>
                             )}
                         </>
@@ -147,7 +161,17 @@ export const MainView = () => {
                                     />
                                     </Col>
                                 ) : movies.length === 0 ?(
-                                    <Col>The list is empty</Col>
+                                    <>
+                                        <Col>The list is empty</Col>
+                                        <Col>
+                                        <Button 
+                                            variant="primary" 
+                                            onClick={() => window.location.reload()}
+                                        >
+                                            Reload Page
+                                        </Button>
+                                        </Col>
+                                    </>
                                 ) : (
                                     <>
                                         {movies.map((movie) => (
@@ -160,7 +184,7 @@ export const MainView = () => {
                                             </Col>
                                         ))}
                                         <Col md={8} className="centeredContent"> 
-                                            <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
+                                            <Button className="addSpacing" onClick={() => onLoggedOut()}>Logout</Button>
                                         </Col>
                                     </>
                                 )}
@@ -211,6 +235,6 @@ export const MainView = () => {
                     </> 
                 )} */}
             </Row>
-        </BrowserRouter>
+        </ BrowserRouter>
     );
 };
