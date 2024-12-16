@@ -3,7 +3,6 @@ import { MainView } from "./Components/main-view/main-view";
 import Container from "react-bootstrap/container"
 
 import "./index.scss";
-import { BrowserRouter } from "react-router-dom";
 
 const MyFlixApplication= () => {
     return (
