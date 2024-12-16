@@ -27297,7 +27297,8 @@ const MainView = ()=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navigationBar.NavigationBar), {
                 user: user,
                 onLoggedOut: ()=>{
-                    setUser(null);
+                    localStorage.clear();
+                    window.location.reload();
                 }
             }, void 0, false, {
                 fileName: "src/Components/main-view/main-view.jsx",
