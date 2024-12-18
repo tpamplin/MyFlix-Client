@@ -70,7 +70,7 @@ export const SignupView = ({onBackClick}) => {
 
             </Form.Group>
             <Form.Group controlId="formBirthday">
-                <Form.Label>Password:</Form.Label>
+                <Form.Label>Birthday:</Form.Label>
                 <Form.Control
                     className="formField"
                     type="date"
