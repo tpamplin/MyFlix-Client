@@ -43198,7 +43198,7 @@ const SignupView = ({ onBackClick })=>{
                 controlId: "formBirthday",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Password:"
+                        children: "Birthday:"
                     }, void 0, false, {
                         fileName: "src/Components/signup-view/signup-view.jsx",
                         lineNumber: 73,
