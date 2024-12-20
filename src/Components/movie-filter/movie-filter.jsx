@@ -36,7 +36,7 @@ export const MovieFilter = ( movies ) => {
                     <MovieCard movie={movie}/> 
                 </Col>
             ))}
-            <Col md={8} className="centeredContent"> 
+            <Col md={12} className="centeredContent"> 
                 <Button className="addSpacing" onClick={() => onLoggedOut()}>Logout</Button>
             </Col>
         </>

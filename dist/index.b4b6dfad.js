@@ -44074,7 +44074,7 @@ const MovieFilter = (movies)=>{
                     columnNumber: 17
                 }, undefined)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                md: 8,
+                md: 12,
                 className: "centeredContent",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     className: "addSpacing",
