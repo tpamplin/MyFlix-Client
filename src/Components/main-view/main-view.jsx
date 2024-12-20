@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { NoUserView } from "../no-user-view/no-user-view";
@@ -6,9 +7,12 @@ import { SignupView} from "../signup-view/signup-view";
 import { LoginView } from "../login-view/login-view";
 import { NavigationBar} from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
+import { MovieFilter } from "../movie-filter/movie-filter"
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+
 import { Routes, Route, Navigate, BrowserRouter} from "react-router-dom";
 
 
@@ -175,67 +179,27 @@ export const MainView = () => {
                                         </Col>
                                     </>
                                 ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col
-                                                className="mb-4" 
-                                                key={movie.Id} 
-                                                md={3}
-                                            >
-                                                <MovieCard movie={movie}/> 
-                                            </Col>
-                                        ))}
-                                        <Col md={8} className="centeredContent"> 
-                                            <Button className="addSpacing" onClick={() => onLoggedOut()}>Logout</Button>
-                                        </Col>
-                                    </>
+
+                                    <MovieFilter movies={movies}/>
+                                    // <>
+                                    //     {movies.map((movie) => (
+                                    //         <Col
+                                    //             className="mb-4" 
+                                    //             key={movie.Id} 
+                                    //             md={3}
+                                    //         >
+                                    //             <MovieCard movie={movie}/> 
+                                    //         </Col>
+                                    //     ))}
+                                    //     <Col md={8} className="centeredContent"> 
+                                    //         <Button className="addSpacing" onClick={() => onLoggedOut()}>Logout</Button>
+                                    //     </Col>
+                                    // </>
                                 )}
                             </>
                         }
                     />
                 </Routes>
-    {/*             
-                { !user ? (
-                    <Col sm={8} md={5}>
-                        <NoUserView
-                        userData={(user, token) => {
-                            setUser(user); 
-                            setToken(token);
-                        }}    
-                        />
-                    </Col >
-                ) : selectedMovie ? (
-                    <Col md={8}>
-                        <MovieView 
-                            movie={selectedMovie} 
-                            onBackClick={() => setSelectedMovie(null)} 
-                        />
-                    </Col>
-                ) : movies.length === 0 ? (
-                    <>
-                        <Col md={2}>
-                            <div>The list isn't loading or your session is expired. Please try to log back in.</div>
-                            <br/>
-                            <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
-                        </Col>
-                    </>
-                ) : (
-                    <>
-                        {movies.map((movie) => (
-                                <Col key={movie.id} sm={8} md={6} lg={3}className="mb-4 mt-2">
-                                    <MovieCard 
-                                        movie={movie} 
-                                        onMovieClick={(newSelectedMovie) => {
-                                            setSelectedMovie(newSelectedMovie)
-                                        }} 
-                                    />
-                                </Col>
-                        ))}
-                            <Col md={8} className="centeredContent"> 
-                                <Button className="addSpacing" onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>Logout</Button>
-                            </Col>
-                    </> 
-                )} */}
             </Row>
         </ BrowserRouter>
     );
