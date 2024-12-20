@@ -107,7 +107,7 @@ export const MainView = () => {
                                 </Col>
                             ) : movies.length === 0 ? (
                                 <>
-                                    <Col>There is No Movie!</Col>
+                                    <Col>There Is No Movie!</Col>
                                     <Col>
                                         <Button 
                                             variant="danger" 
@@ -162,14 +162,16 @@ export const MainView = () => {
                                     </Col>
                                 ) : movies.length === 0 ?(
                                     <>
-                                        <Col>The list is empty</Col>
                                         <Col>
-                                        <Button 
+                                        <p>The list is empty</p>
+                                        <Button
+                                            className="addSpacing" 
                                             variant="primary" 
                                             onClick={() => window.location.reload()}
                                         >
                                             Reload Page
                                         </Button>
+                                        <Button className="addSpacing" onClick={() => onLoggedOut()}>Logout</Button>
                                         </Col>
                                     </>
                                 ) : (
