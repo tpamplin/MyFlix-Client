@@ -44018,78 +44018,76 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieFilter", ()=>MovieFilter);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
 var _movieCard = require("../movie-card/movie-card");
 var _s = $RefreshSig$();
 const MovieFilter = (movies)=>{
     _s();
-    const [filter, setFilter] = useState("");
-    const handleFilterChange;
+    const [filter, setFilter] = (0, _react.useState)("");
+    const filteredMovies = filter ? movies.movies.filter((movie)=>{
+        return movie.Title.toLowerCase().includes(filter.toLowerCase());
+    }) : movies.movies;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
                 className: "filter-form mb-4",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
                     controlId: "filter",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                            children: "Search:"
-                        }, void 0, false, {
-                            fileName: "src/Components/movie-filter/movie-filter.jsx",
-                            lineNumber: 15,
-                            columnNumber: 17
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-                            className: "formField",
-                            type: "text",
-                            value: filter,
-                            onChange: (e)=>handleFilterChange()
-                        }, void 0, false, {
-                            fileName: "src/Components/movie-filter/movie-filter.jsx",
-                            lineNumber: 16,
-                            columnNumber: 17
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                        className: "formField",
+                        placeholder: "Search:",
+                        type: "text",
+                        value: filter,
+                        onChange: (e)=>{
+                            setFilter(e.target.value);
+                        }
+                    }, void 0, false, {
+                        fileName: "src/Components/movie-filter/movie-filter.jsx",
+                        lineNumber: 18,
+                        columnNumber: 17
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/Components/movie-filter/movie-filter.jsx",
-                    lineNumber: 14,
+                    lineNumber: 17,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/movie-filter/movie-filter.jsx",
-                lineNumber: 13,
+                lineNumber: 16,
                 columnNumber: 9
             }, undefined),
-            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Col, {
+            filteredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                     className: "mb-4",
                     md: 3,
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                         movie: movie
                     }, void 0, false, {
                         fileName: "src/Components/movie-filter/movie-filter.jsx",
-                        lineNumber: 31,
+                        lineNumber: 36,
                         columnNumber: 21
                     }, undefined)
                 }, movie.Id, false, {
                     fileName: "src/Components/movie-filter/movie-filter.jsx",
-                    lineNumber: 26,
+                    lineNumber: 31,
                     columnNumber: 17
                 }, undefined)),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Col, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                 md: 8,
                 className: "centeredContent",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Button, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     className: "addSpacing",
                     onClick: ()=>onLoggedOut(),
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/Components/movie-filter/movie-filter.jsx",
-                    lineNumber: 35,
+                    lineNumber: 40,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/Components/movie-filter/movie-filter.jsx",
-                lineNumber: 34,
+                lineNumber: 39,
                 columnNumber: 13
             }, undefined)
         ]
@@ -44105,6 +44103,6 @@ $RefreshReg$(_c, "MovieFilter");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../movie-card/movie-card":"7nFi2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"lJZlQ":[function() {},{}]},["gjUm6","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","../movie-card/movie-card":"7nFi2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A","react":"21dqq"}],"lJZlQ":[function() {},{}]},["gjUm6","1xC6H","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
