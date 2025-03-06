@@ -27272,7 +27272,7 @@ const MainView = ()=>{
     };
     (0, _react.useEffect)(()=>{
         if (!token) return;
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/movies/", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/movies/", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -42677,7 +42677,7 @@ const FavoriteButton = ({ user, movie, setUser })=>{
         MovieID: movie.Id
     };
     const addFavorite = ()=>{
-        fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`, {
+        fetch(`http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${user.Username}/favorites`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -42692,7 +42692,7 @@ const FavoriteButton = ({ user, movie, setUser })=>{
         }).catch((err)=>console.error(err));
     };
     const removeFavorite = ()=>{
-        fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`, {
+        fetch(`http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${user.Username}/favorites`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -42917,7 +42917,7 @@ const LoginView = ({ onLoggedIn, onBackClick })=>{
             Username: username,
             Password: password
         };
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/login", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -43077,7 +43077,7 @@ const SignupView = ({ onBackClick })=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/users", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
@@ -43707,7 +43707,7 @@ const ProfileUpdate = ({ user, token })=>{
             Email: email,
             Birthday: birthday
         };
-        fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${username}`, {
+        fetch(`http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
@@ -43913,7 +43913,7 @@ const ProfileDelete = ({ username, token })=>{
     _s();
     const [showModal, setShowModal] = (0, _react.useState)(false);
     const handleDelete = (event)=>{
-        fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${username}`, {
+        fetch(`http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${username}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
