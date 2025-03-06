@@ -11,7 +11,7 @@ export const FavoriteButton =  ({ user, movie, setUser}) => {
     }
     const addFavorite = () =>{
         fetch(
-            `https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`,
+            `http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${user.Username}/favorites`,
             {
                 method: "POST",
                 headers: {
@@ -35,7 +35,7 @@ export const FavoriteButton =  ({ user, movie, setUser}) => {
 
     const removeFavorite = () =>{
         fetch(
-            `https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${user.Username}/favorites`,
+            `http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${user.Username}/favorites`,
             {
                 method: "DELETE",
                 headers: {

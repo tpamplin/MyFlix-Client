@@ -17,7 +17,7 @@ export const LoginView = ({onLoggedIn, onBackClick}) => {
 
 
 
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/login", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

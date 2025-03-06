@@ -18,7 +18,7 @@ export const SignupView = ({onBackClick}) => {
             Birthday: birthday
         };
 
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/users", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {

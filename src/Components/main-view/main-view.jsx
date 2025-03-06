@@ -37,7 +37,7 @@ export const MainView = () => {
             return;
         }
 
-        fetch("https://myflix-timpamplin-021f285e4632.herokuapp.com/movies/", {
+        fetch("http://ec2-44-211-131-121.compute-1.amazonaws.com/movies/", {
             headers: { Authorization: `Bearer ${token}`}
         })
         .then((response) => response.json())

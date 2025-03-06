@@ -20,7 +20,7 @@ export const ProfileUpdate = ({ user , token }) => {
             Birthday: birthday,
         };
         
-        fetch(`https://myflix-timpamplin-021f285e4632.herokuapp.com/users/${username}`, {
+        fetch(`http://ec2-44-211-131-121.compute-1.amazonaws.com/users/${username}`, {
             method: "PUT",
             body: JSON.stringify(data),
             headers: {
